@@ -1,16 +1,12 @@
 import java.util.Scanner;
-
-
 public class WashingtonTemperatureMain 
 {
 	static int temp=0, bigNumber=0, lowNumber=0, high, low, month;
 	static final int MONTHS=12, TEMP=2;
 	static int [][] tempYear= new int[MONTHS][TEMP];
-	/*dont use 12 months 2 temperatures use constants instead such as final int MONTHS=12, TEMPERATURES=2;
-	*/
 	public static void main(String[] args) 
 	{ 
-		inputTempForMonth(12,tempYear);//pass array in and value for months dont return it.
+		inputTempForMonth(12,tempYear);// array and months get passed in the method and pringted out
 		for (month=0; month<12; month++)
 		{
 			System.out.println("temperatures of month "+(month+1)+" "+tempYear[month][0]+" "+tempYear[month][1]);
@@ -37,13 +33,13 @@ public class WashingtonTemperatureMain
 		}
 	}
 	public static int[][] inputTempForYear()
-	{		
+	{	//temperatures for the year get placed in array	
 		tempYear[month][0]=high;
 		tempYear[month][1]=low;
 		return tempYear;
 	}
 	public static double calculateAverageHigh(int [][]year)
-	{
+	{//gets average amount of higher temperatures 
 		double averageHigh=0;
 		for( month=0;month<12;month++)
 		{
@@ -53,7 +49,7 @@ public class WashingtonTemperatureMain
 		return averageHigh;
 	}
 	public static double calculateAverageLow(int [][]year)
-	{
+	{//gets average amount of lower temperatures
 		double averageLow=0;
 		for( month=0;month<12;month++)
 		{
@@ -70,7 +66,8 @@ public class WashingtonTemperatureMain
 			{
 				bigNumber=tempYear[month][0];
 			}
-		}
+		}//the nested for-if loop above is made to switch the temperatures and put them
+		//in order
 		System.out.println("largest number is "+bigNumber);
 		for( month=0;month<tempYear.length;month++)
 		{
@@ -92,7 +89,7 @@ public class WashingtonTemperatureMain
 				month=tempYear.length+1;
 				return bigNumber;
 			}
-		}
+		}// this for if loop looks for the month the largest temperature had first 
 		return bigNumber;
 	}
 
@@ -104,7 +101,8 @@ public class WashingtonTemperatureMain
 			{
 				lowNumber=tempYear[month][1];
 			}
-		}
+		}//the nested for-if loop above is made to switch the temperatures and put them
+		//in order
 		System.out.println("smallest number is "+lowNumber);
 		for( month=0;month<tempYear.length;month++)
 		{
@@ -126,7 +124,7 @@ public class WashingtonTemperatureMain
 				month=tempYear.length+1;
 				return lowNumber;
 			}
-		}
+		}// this for if loop looks for the month the smallest temperature had first
 		return lowNumber;
 	}
 }
